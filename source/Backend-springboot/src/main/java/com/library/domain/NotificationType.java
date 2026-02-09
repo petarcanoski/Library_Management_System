@@ -1,0 +1,14 @@
+package com.library.domain;
+
+public enum NotificationType {
+    DUE_DATE_ALERT,
+    BOOK_REMINDER,
+    NEW_ARRIVAL,
+    RECOMMENDATION,
+    MARKETING,
+    RESERVATION_AVAILABLE,
+    SUBSCRIPTION_EXPIRING,
+    FINE_NOTIFICATION,
+    BOOK_RETURNED,
+    SYSTEM_NOTIFICATION
+}

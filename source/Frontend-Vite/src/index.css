@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+/* Theme CSS Variables - Will be set by ThemeProvider */
+:root {
+  /* Default light theme colors */
+  --color-primary: #F59E0B;
+  --color-secondary: #192a56;
+  --color-success: #2ed573;
+  --color-danger: #ff4757;
+
+  --color-background: #ffffff;
+  --color-backgroundSecondary: #f9fafb;
+  --color-backgroundTertiary: #f3f4f6;
+
+  --color-textPrimary: #111827;
+  --color-textSecondary: #6b7280;
+  --color-textTertiary: #9ca3af;
+
+  --color-border: #e5e7eb;
+  --color-borderSecondary: #d1d5db;
+
+  --color-card: #ffffff;
+  --color-cardHover: #f9fafb;
+
+  --color-input: #ffffff;
+  --color-inputBorder: #d1d5db;
+  --color-inputFocus: #F59E0B;
+
+  --color-overlay: rgba(0, 0, 0, 0.5);
+}
+
+/* Smooth theme transitions */
+.theme-transitioning,
+.theme-transitioning * {
+  transition: background-color 300ms ease-in-out,
+              color 300ms ease-in-out,
+              border-color 300ms ease-in-out !important;
+}
+
+/* Base body styling with theme variables */
+body {
+  background-color: var(--color-background);
+  color: var(--color-textPrimary);
+  transition: background-color 300ms ease-in-out, color 300ms ease-in-out;
+}
+
+/* Theme utility classes */
+.bg-theme-primary {
+  background-color: var(--color-primary);
+}
+
+.bg-theme-secondary {
+  background-color: var(--color-secondary);
+}
+
+.bg-theme-success {
+  background-color: var(--color-success);
+}
+
+.bg-theme-danger {
+  background-color: var(--color-danger);
+}
+
+.bg-theme-background {
+  background-color: var(--color-background);
+}
+
+.bg-theme-card {
+  background-color: var(--color-card);
+}
+
+.text-theme-primary {
+  color: var(--color-primary);
+}
+
+.text-theme-secondary {
+  color: var(--color-secondary);
+}
+
+.text-theme-success {
+  color: var(--color-success);
+}
+
+.text-theme-danger {
+  color: var(--color-danger);
+}
+
+.text-theme-text {
+  color: var(--color-textPrimary);
+}
+
+.text-theme-text-secondary {
+  color: var(--color-textSecondary);
+}
+
+.border-theme {
+  border-color: var(--color-border);
+}
+
+.border-theme-secondary {
+  border-color: var(--color-borderSecondary);
+}
+
+/* Scrollbar theming */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-backgroundSecondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-borderSecondary);
+}

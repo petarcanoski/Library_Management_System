@@ -1,0 +1,1090 @@
+{
+	"info": {
+		"_postman_id": "b6b7e1de-7b2a-44fa-a267-5d623d294bba",
+		"name": "Library Managment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25460319",
+		"_collection_link": "https://restless-crater-53383.postman.co/workspace/My-Workspace~08ccbb08-ce42-4e3e-871e-d17f2a693c70/collection/25460319-b6b7e1de-7b2a-44fa-a267-5d623d294bba?action=share&source=collection_link&creator=25460319"
+	},
+	"item": [
+		{
+			"name": "Book Service",
+			"item": [
+				{
+					"name": "create book",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \r\n  \"isbn\": \"978-3-16-148410-6\",\r\n  \"title\": \"The Art of Full stack Development 3\",\r\n  \"author\": \"Ashok Zarmariya\",\r\n  \"genreId\": 102,\r\n  \"publisher\": \"Zosh Publications\",\r\n  \"publicationDate\": \"2023-05-15\",\r\n  \"language\": \"English\",\r\n  \"pages\": 420,\r\n  \"description\": \"A comprehensive guide to mastering Java programming, covering modern practices, frameworks, and real-world applications.\",\r\n  \"totalCopies\": 1,\r\n  \"availableCopies\": 1,\r\n  \"price\": 499.99,\r\n  \"coverImageUrl\": \"https://images.pexels.com/photos/4058794/pexels-photo-4058794.jpeg\",\r\n  \"active\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/admin/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"admin",
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all books",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \r\n  \"flightId\": 1001,\r\n  \"flightInstanceId\": 1,\r\n  \"cabinClass\": \"ECONOMY\",\r\n  \"tripType\": \"ROUND_TRIP\",\r\n  \"passengers\": [\r\n    {\r\n      \"firstName\": \"Aarav\",\r\n      \"lastName\": \"Sharma\",\r\n      \"age\": 28,\r\n      \"gender\": \"MALE\",\r\n      \"passportNumber\": \"M1234567\",\r\n      \"nationality\": \"IN\",\r\n      \"seatNumber\": \"1A\",\r\n        \"phone\": \"7876543210\",\r\n    \"dateOfBirth\": \"1990-05-12\",\r\n    \"email\":\"aarav@gmail.com\"\r\n    },\r\n    {\r\n      \"firstName\": \"Ananya\",\r\n      \"lastName\": \"Patel\",\r\n      \"age\": 25,\r\n      \"gender\": \"FEMALE\",\r\n      \"passportNumber\": \"N9876543\",\r\n      \"nationality\": \"IN\",\r\n      \"seatNumber\": \"1B\",\r\n        \"phone\": \"9776543210\",\r\n    \"dateOfBirth\": \"1990-05-12\",\r\n    \"email\":\"ananya@gmail.com\"\r\n    }\r\n  ],\r\n  \"ancillaryIds\": [], \r\n  \"contactEmail\": \"ashok.z@example.com\",\r\n  \"contactPhone\": \"9876543210\",\r\n  \"promoCode\": \"INDIA2025\",\r\n  \"seatNumbers\": [\"12A\", \"12B\"]\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create bulk books",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  \r\n  {\r\n   \r\n    \"isbn\": \"978-1-250-80311-8\",\r\n    \"title\": \"Principles of Corporate Finance\",\r\n    \"author\": \"Richard A. Brealey\",\r\n    \"genreId\": 7,\r\n    \"publisher\": \"McGraw-Hill Education\",\r\n    \"publicationDate\": \"2021-08-10\",\r\n    \"language\": \"English\",\r\n    \"pages\": 992,\r\n    \"description\": \"Comprehensive reference on corporate finance concepts, risk management, and valuation practices used by professionals worldwide.\",\r\n    \"totalCopies\": 30,\r\n    \"availableCopies\": 18,\r\n    \"price\": 1099.99,\r\n    \"coverImageUrl\": \"https://images.pexels.com/photos/590041/pexels-photo-590041.jpeg\",\r\n    \"active\": true\r\n  },\r\n  {\r\n   \r\n    \"isbn\": \"978-0-07-352710-9\",\r\n    \"title\": \"Financial Accounting Fundamentals\",\r\n    \"author\": \"John Wild\",\r\n    \"genreId\": 9,\r\n    \"publisher\": \"McGraw-Hill Education\",\r\n    \"publicationDate\": \"2019-05-01\",\r\n    \"language\": \"English\",\r\n    \"pages\": 528,\r\n    \"description\": \"Introductory guide to financial accounting principles, focusing on financial statements, transactions, and auditing basics.\",\r\n    \"totalCopies\": 35,\r\n    \"availableCopies\": 20,\r\n    \"price\": 649.99,\r\n    \"coverImageUrl\": \"https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg\",\r\n    \"active\": true\r\n  },\r\n  {\r\n\r\n    \"isbn\": \"978-1-59327-584-6\",\r\n    \"title\": \"The Lean Startup\",\r\n    \"author\": \"Eric Ries\",\r\n    \"genreId\": 2,\r\n    \"publisher\": \"Crown Business\",\r\n    \"publicationDate\": \"2018-04-10\",\r\n    \"language\": \"English\",\r\n    \"pages\": 336,\r\n    \"description\": \"A management guide on building successful startups through continuous innovation, adaptive planning, and validated learning.\",\r\n    \"totalCopies\": 45,\r\n    \"availableCopies\": 28,\r\n    \"price\": 599.99,\r\n    \"coverImageUrl\": \"https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg\",\r\n    \"active\": true\r\n  },\r\n  {\r\n \r\n    \"isbn\": \"978-0-07-352719-2\",\r\n    \"title\": \"Human Resource Management\",\r\n    \"author\": \"Gary Dessler\",\r\n    \"genreId\": 3,\r\n    \"publisher\": \"Pearson Education\",\r\n    \"publicationDate\": \"2020-07-20\",\r\n    \"language\": \"English\",\r\n    \"pages\": 688,\r\n    \"description\": \"Comprehensive exploration of HR principles including recruitment, employee relations, compensation, and performance management.\",\r\n    \"totalCopies\": 50,\r\n    \"availableCopies\": 33,\r\n    \"price\": 899.99,\r\n    \"coverImageUrl\": \"https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg\",\r\n    \"active\": true\r\n  },\r\n  {\r\n   \r\n    \"isbn\": \"978-0-07-811167-8\",\r\n    \"title\": \"Marketing Management\",\r\n    \"author\": \"Philip Kotler\",\r\n    \"genreId\": 5,\r\n    \"publisher\": \"Pearson\",\r\n    \"publicationDate\": \"2022-02-10\",\r\n    \"language\": \"English\",\r\n    \"pages\": 720,\r\n    \"description\": \"Classic textbook on marketing principles covering strategy, branding, digital marketing, and consumer behavior insights.\",\r\n    \"totalCopies\": 60,\r\n    \"availableCopies\": 40,\r\n    \"price\": 999.99,\r\n    \"coverImageUrl\": \"https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg\",\r\n    \"active\": true\r\n  },\r\n  {\r\n\r\n    \"isbn\": \"978-0-13-472953-8\",\r\n    \"title\": \"Operations Management\",\r\n    \"author\": \"Jay Heizer\",\r\n    \"genreId\": 6,\r\n    \"publisher\": \"Pearson Education\",\r\n    \"publicationDate\": \"2021-09-15\",\r\n    \"language\": \"English\",\r\n    \"pages\": 864,\r\n    \"description\": \"Comprehensive coverage of production and operations management, supply chain optimization, and process improvement techniques.\",\r\n    \"totalCopies\": 40,\r\n    \"availableCopies\": 25,\r\n    \"price\": 899.99,\r\n    \"coverImageUrl\": \"https://images.pexels.com/photos/3182834/pexels-photo-3182834.jpeg\",\r\n    \"active\": true\r\n  }\r\n]\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/books/bulk",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"books",
+								"bulk"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get book by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \r\n  \"flightId\": 1001,\r\n  \"flightInstanceId\": 1,\r\n  \"cabinClass\": \"ECONOMY\",\r\n  \"tripType\": \"ROUND_TRIP\",\r\n  \"passengers\": [\r\n    {\r\n      \"firstName\": \"Aarav\",\r\n      \"lastName\": \"Sharma\",\r\n      \"age\": 28,\r\n      \"gender\": \"MALE\",\r\n      \"passportNumber\": \"M1234567\",\r\n      \"nationality\": \"IN\",\r\n      \"seatNumber\": \"1A\",\r\n        \"phone\": \"7876543210\",\r\n    \"dateOfBirth\": \"1990-05-12\",\r\n    \"email\":\"aarav@gmail.com\"\r\n    },\r\n    {\r\n      \"firstName\": \"Ananya\",\r\n      \"lastName\": \"Patel\",\r\n      \"age\": 25,\r\n      \"gender\": \"FEMALE\",\r\n      \"passportNumber\": \"N9876543\",\r\n      \"nationality\": \"IN\",\r\n      \"seatNumber\": \"1B\",\r\n        \"phone\": \"9776543210\",\r\n    \"dateOfBirth\": \"1990-05-12\",\r\n    \"email\":\"ananya@gmail.com\"\r\n    }\r\n  ],\r\n  \"ancillaryIds\": [], \r\n  \"contactEmail\": \"ashok.z@example.com\",\r\n  \"contactPhone\": \"9876543210\",\r\n  \"promoCode\": \"INDIA2025\",\r\n  \"seatNumbers\": [\"12A\", \"12B\"]\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/books/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"books",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update book",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \r\n    \"title\": \"The Art of Paython Development\",\r\n    \"author\": \"Ashok Zarmariya\",\r\n    \"genreId\": 1,\r\n    \"genreName\": \"Non-Fiction\",\r\n    \"genreCode\": \"Non-Fiction\",\r\n    \"publisher\": \"Zosh Publications\",\r\n    \"publicationDate\": \"2023-05-15\",\r\n    \"language\": \"English\",\r\n    \"pages\": 420,\r\n    \"description\": \"A comprehensive guide to mastering Java programming, covering modern practices, frameworks, and real-world applications.\",\r\n    \"totalCopies\": 1,\r\n    \"availableCopies\": 1,\r\n    \"price\": 499.99,\r\n    \"coverImageUrl\": \"https://images.pexels.com/photos/4058794/pexels-photo-4058794.jpeg\",\r\n    \"alreadyHaveLoan\": null,\r\n    \"alreadyHaveReservation\": null,\r\n    \"active\": true,\r\n    \"createdAt\": \"2025-12-22T15:30:59.302096\",\r\n    \"updatedAt\": \"2025-12-22T15:30:59.302096\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/books/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"books",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "soft delte",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "book state",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User service",
+			"item": [
+				{
+					"name": "Sing Up",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fullName\":\"Vikram\",\r\n    \"email\":\"vikram@gmail.com\",\r\n    \"password\":\"12345678\",\r\n    \"username\":\"viky\",\r\n    \"role\": \"ROLE_AIRLINE_ADMIN\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/auth/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "refresh-token",
+								"value": "{{refresh_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/users/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"users",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sign In",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"email\":\"codewithzosh@gmail.com\",\r\n    \"password\":\"codewithzosh\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sent Login Otp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"ashok262690@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5454/auth/sent/login-signup-otp",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5454",
+							"path": [
+								"auth",
+								"sent",
+								"login-signup-otp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "keyclock profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "refresh-token",
+								"value": "{{refresh_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/users/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"users",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "access token from refresh token",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/auth/access-token/refresh-token/{{refresh_token}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"auth",
+								"access-token",
+								"refresh-token",
+								"{{refresh_token}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Genera",
+			"item": [
+				{
+					"name": "create bulk genre",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n      \"id\": 11,\r\n      \"code\": \"MANAGEMENT\",\r\n      \"name\": \"Management\",\r\n      \"description\": \"Books on strategic planning, leadership, and organizational management principles.\",\r\n      \"displayOrder\": 1,\r\n      \"active\": true,\r\n      \"parentGenreId\": 10\r\n      \r\n    },\r\n    {\r\n      \"id\": 12,\r\n      \"code\": \"HUMAN_RESOURCES\",\r\n      \"name\": \"Human Resources\",\r\n      \"description\": \"Covers employee management, organizational behavior, and HR development topics.\",\r\n      \"displayOrder\": 2,\r\n      \"active\": true,\r\n      \"parentGenreId\": 10\r\n      \r\n  \r\n    },\r\n    {\r\n      \"id\": 13,\r\n      \"code\": \"FINANCE\",\r\n      \"name\": \"Finance\",\r\n      \"description\": \"Includes books related to corporate finance, investment, accounting, and financial planning.\",\r\n      \"displayOrder\": 3,\r\n      \"active\": true,\r\n      \"parentGenreId\": 10\r\n      \r\n     \r\n    },\r\n    {\r\n      \"id\": 14,\r\n      \"code\": \"MARKETING\",\r\n      \"name\": \"Marketing\",\r\n      \"description\": \"Focuses on marketing strategies, consumer behavior, branding, and advertising techniques.\",\r\n      \"displayOrder\": 4,\r\n      \"active\": true,\r\n      \"parentGenreId\": 10\r\n      \r\n    \r\n    },\r\n    {\r\n      \"id\": 15,\r\n      \"code\": \"OPERATIONS\",\r\n      \"name\": \"Operations\",\r\n      \"description\": \"Covers production management, logistics, supply chain optimization, and process improvement.\",\r\n      \"displayOrder\": 5,\r\n      \"active\": true,\r\n      \"parentGenreId\": 10\r\n      \r\n    \r\n    }\r\n  ]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/genres/bulk",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"genres",
+								"bulk"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all genre",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "hierarchy",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "get top level genre",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n      \"id\": 11,\r\n      \"code\": \"MANAGEMENT\",\r\n      \"name\": \"Management\",\r\n      \"description\": \"Books on strategic planning, leadership, and organizational management principles.\",\r\n      \"displayOrder\": 1,\r\n      \"active\": true,\r\n      \"parentGenreId\": 10\r\n      \r\n    },\r\n    {\r\n      \"id\": 12,\r\n      \"code\": \"HUMAN_RESOURCES\",\r\n      \"name\": \"Human Resources\",\r\n      \"description\": \"Covers employee management, organizational behavior, and HR development topics.\",\r\n      \"displayOrder\": 2,\r\n      \"active\": true,\r\n      \"parentGenreId\": 10\r\n      \r\n  \r\n    },\r\n    {\r\n      \"id\": 13,\r\n      \"code\": \"FINANCE\",\r\n      \"name\": \"Finance\",\r\n      \"description\": \"Includes books related to corporate finance, investment, accounting, and financial planning.\",\r\n      \"displayOrder\": 3,\r\n      \"active\": true,\r\n      \"parentGenreId\": 10\r\n      \r\n     \r\n    },\r\n    {\r\n      \"id\": 14,\r\n      \"code\": \"MARKETING\",\r\n      \"name\": \"Marketing\",\r\n      \"description\": \"Focuses on marketing strategies, consumer behavior, branding, and advertising techniques.\",\r\n      \"displayOrder\": 4,\r\n      \"active\": true,\r\n      \"parentGenreId\": 10\r\n      \r\n    \r\n    },\r\n    {\r\n      \"id\": 15,\r\n      \"code\": \"OPERATIONS\",\r\n      \"name\": \"Operations\",\r\n      \"description\": \"Covers production management, logistics, supply chain optimization, and process improvement.\",\r\n      \"displayOrder\": 5,\r\n      \"active\": true,\r\n      \"parentGenreId\": 10\r\n      \r\n    \r\n    }\r\n  ]"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/genres/top-level",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"genres",
+								"top-level"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create genre",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "update genre",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "get genre by id",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "delete-soft",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "hard delete",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "subscription",
+			"item": [
+				{
+					"name": "create subscription",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n  \"plan\": \"MONTHLY\",\r\n  \"paymentGateway\": \"RAZORPAY\",\r\n  \"autoRenew\": true,\r\n  \"successUrl\": \"https://my-library.com/payment/success\",\r\n  \"cancelUrl\": \"https://my-library.com/payment/cancel\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/subscriptions/subscribe",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"subscriptions",
+								"subscribe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "verify payment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"paymentId\": 3,\r\n  \"gateway\": \"RAZORPAY\",\r\n  \r\n  \"razorpayPaymentId\": \"pay_RRift4M5EMsWqo\",\r\n  \"razorpayOrderId\": null,\r\n  \"razorpaySignature\": \"77e68653a6cd7d2dcdcf5061567bf8c23d8ef26ae039fa7fe67317f5a07c06ef\",\r\n  \r\n  \"stripePaymentIntentId\": null,\r\n  \"stripePaymentIntentStatus\": null,\r\n  \r\n  \"transactionId\": \"plink_RRieCTJpAMNrfe\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/payments/verify",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"payments",
+								"verify"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "subscribe",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"paymentId\": 3,\r\n  \"gateway\": \"RAZORPAY\",\r\n  \r\n  \"razorpayPaymentId\": \"pay_RRift4M5EMsWqo\",\r\n  \"razorpayOrderId\": null,\r\n  \"razorpaySignature\": \"77e68653a6cd7d2dcdcf5061567bf8c23d8ef26ae039fa7fe67317f5a07c06ef\",\r\n  \r\n  \"stripePaymentIntentId\": null,\r\n  \"stripePaymentIntentStatus\": null,\r\n  \r\n  \"transactionId\": \"plink_RRieCTJpAMNrfe\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/subscriptions/history",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"subscriptions",
+								"history"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get users active subscription",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/subscriptions/user/active",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"subscriptions",
+								"user",
+								"active"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all subscription",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "activate subscription",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "cancel subscription",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "subscription plan",
+			"item": [
+				{
+					"name": "create plan",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "get all plans",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/subscription-plans",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"subscription-plans"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update plan",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "delete plan",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Book Loan",
+			"item": [
+				{
+					"name": "create book loan",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "active checkouts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/book-loans/my",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"book-loans",
+								"my"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "false",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all the book loans",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/book-loans/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"book-loans",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "return book",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Payment",
+			"item": [
+				{
+					"name": "get all payments",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Fine",
+			"item": [
+				{
+					"name": "create fine",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"bookLoanId\": 12345,\r\n  \"type\": \"LATE_RETURN\",\r\n  \"amount\": 500,\r\n  \"reason\": \"Book returned after due date\",\r\n  \"notes\": \"Returned 5 days late\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/fines",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"fines"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get my fines",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "get all fines",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "waive fine",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "pay fine",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reservation",
+			"item": [
+				{
+					"name": "create reservation",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "get all",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "my reservation",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "cancel reservation",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/reservations/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"reservations",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "wishlist",
+			"item": [
+				{
+					"name": "create wishlist",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "my wishlist",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "remove book",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Book Review",
+			"item": [
+				{
+					"name": "create review",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "fetch book review",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "delete review",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/reviews/book/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"reviews",
+								"book",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
